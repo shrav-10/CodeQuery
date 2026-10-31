@@ -1,0 +1,102 @@
+{
+  "directed": true,
+  "multigraph": false,
+  "graph": {
+    "repository": "test_repo"
+  },
+  "nodes": [
+    {
+      "id": "mod::sample.py",
+      "type": "module",
+      "name": "sample.py",
+      "rel_path": "sample.py",
+      "full_path": "C:\\Users\\LENOVO\\AppData\\Local\\Temp\\pytest-of-LENOVO\\pytest-1\\test_graph_builder_and_expansi0\\sample.py",
+      "docstring": ""
+    },
+    {
+      "id": "cls::sample.py::BaseService",
+      "type": "class",
+      "name": "BaseService",
+      "rel_path": "sample.py",
+      "start_line": 1,
+      "end_line": 2,
+      "docstring": "",
+      "bases": []
+    },
+    {
+      "id": "cls::sample.py::AuthService",
+      "type": "class",
+      "name": "AuthService",
+      "rel_path": "sample.py",
+      "start_line": 4,
+      "end_line": 8,
+      "docstring": "",
+      "bases": [
+        "BaseService"
+      ]
+    },
+    {
+      "id": "fn::sample.py::AuthService::login",
+      "type": "method",
+      "name": "login",
+      "full_name": "AuthService.login",
+      "parent_class": "AuthService",
+      "rel_path": "sample.py",
+      "start_line": 5,
+      "end_line": 6,
+      "docstring": "",
+      "args": [
+        "user"
+      ]
+    },
+    {
+      "id": "fn::sample.py::AuthService::verify",
+      "type": "method",
+      "name": "verify",
+      "full_name": "AuthService.verify",
+      "parent_class": "AuthService",
+      "rel_path": "sample.py",
+      "start_line": 7,
+      "end_line": 8,
+      "docstring": "",
+      "args": [
+        "user"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "relation": "CONTAINS",
+      "source": "mod::sample.py",
+      "target": "cls::sample.py::BaseService"
+    },
+    {
+      "relation": "CONTAINS",
+      "source": "mod::sample.py",
+      "target": "cls::sample.py::AuthService"
+    },
+    {
+      "relation": "CONTAINS",
+      "source": "cls::sample.py::AuthService",
+      "target": "fn::sample.py::AuthService::login"
+    },
+    {
+      "relation": "CONTAINS",
+      "source": "cls::sample.py::AuthService",
+      "target": "fn::sample.py::AuthService::verify"
+    },
+    {
+      "relation": "INHERITS_FROM",
+      "base": "BaseService",
+      "source": "cls::sample.py::AuthService",
+      "target": "cls::sample.py::BaseService"
+    },
+    {
+      "relation": "CALLS",
+      "line": 6,
+      "name": "verify",
+      "source": "fn::sample.py::AuthService::login",
+      "target": "fn::sample.py::AuthService::verify"
+    }
+  ]
+}

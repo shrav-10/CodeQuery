@@ -807,3 +807,21 @@ button {
 .primary-button {
   text-decoration: none;
 }
+.repository-message {
+  margin-top: 18px;
+  color: #a5b4fc;
+  font-size: 13px;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

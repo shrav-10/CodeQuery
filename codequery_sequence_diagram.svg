@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1520 1340" width="100%" height="100%">
+  <defs>
+    <style><![CDATA[
+      .diagram-bg { fill: #F8FAFC; }
+      .header-title { font-family: 'Segoe UI', Arial, sans-serif; font-size: 21px; font-weight: 700; fill: #0F172A; }
+      .header-subtitle { font-family: 'Segoe UI', Arial, sans-serif; font-size: 13px; font-weight: 400; fill: #475569; }
+
+      /* Lifeline Boxes */
+      .actor-box { fill: #1E293B; stroke: #0F172A; stroke-width: 1.5; rx: 6; ry: 6; }
+      .actor-title { font-family: 'Segoe UI', Arial, sans-serif; font-size: 12px; font-weight: 700; fill: #FFFFFF; text-anchor: middle; }
+      .actor-sub { font-family: 'Consolas', 'Courier New', monospace; font-size: 9.5px; fill: #94A3B8; text-anchor: middle; }
+
+      .lifeline-box { fill: #FFFFFF; stroke: #CBD5E1; stroke-width: 1.5; rx: 6; ry: 6; }
+      .lifeline-title { font-family: 'Segoe UI', Arial, sans-serif; font-size: 12px; font-weight: 700; fill: #1E293B; text-anchor: middle; }
+      .lifeline-sub { font-family: 'Consolas', 'Courier New', monospace; font-size: 9.5px; fill: #64748B; text-anchor: middle; }
+      .lifeline-wire { stroke: #94A3B8; stroke-width: 1.2; stroke-dasharray: 4,4; fill: none; }
+
+      /* Activation bars */
+      .act-bar { fill: #EFF6FF; stroke: #3B82F6; stroke-width: 1.2; rx: 2; ry: 2; }
+      .act-bar-amber { fill: #FEF3C7; stroke: #D97706; stroke-width: 1.2; rx: 2; ry: 2; }
+      .act-bar-emerald { fill: #D1FAE5; stroke: #059669; stroke-width: 1.2; rx: 2; ry: 2; }
+      .act-bar-purple { fill: #F3E8FF; stroke: #9333EA; stroke-width: 1.2; rx: 2; ry: 2; }
+
+      /* Message lines */
+      .msg-sync { stroke: #1E293B; stroke-width: 1.5; fill: none; }
+      .msg-reply { stroke: #475569; stroke-width: 1.4; stroke-dasharray: 4,3; fill: none; }
+      .msg-text { font-family: 'Consolas', 'Courier New', monospace; font-size: 10.5px; fill: #0F172A; font-weight: 600; }
+      .msg-ret-text { font-family: 'Consolas', 'Courier New', monospace; font-size: 10px; fill: #475569; font-style: italic; }
+
+      /* Phase Divider */
+      .phase-bg { fill: #F1F5F9; stroke: #CBD5E1; stroke-width: 1.5; rx: 6; ry: 6; }
+      .phase-title { font-family: 'Segoe UI', Arial, sans-serif; font-size: 13px; font-weight: 700; fill: #1E293B; }
+      .phase-desc { font-family: 'Segoe UI', Arial, sans-serif; font-size: 11px; fill: #64748B; }
+
+      /* Notes and badges */
+      .note-badge { fill: #FEF9C3; stroke: #EAB308; stroke-width: 1; rx: 4; ry: 4; }
+      .note-text { font-family: 'Segoe UI', Arial, sans-serif; font-size: 9.5px; fill: #854D0E; }
+      
+      .legend-box { fill: #FFFFFF; stroke: #E2E8F0; stroke-width: 1.2; rx: 8; ry: 8; }
+      .legend-title { font-family: 'Segoe UI', Arial, sans-serif; font-size: 11.5px; font-weight: 700; fill: #334155; }
+      .legend-text { font-family: 'Segoe UI', Arial, sans-serif; font-size: 10.5px; fill: #64748B; }
+    ]]></style>
+
+    <marker id="arr-solid" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#1E293B" />
+    </marker>
+    <marker id="arr-dash" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#475569" />
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1520" height="1340" class="diagram-bg" />
+
+  <!-- Title Banner -->
+  <g id="TitleBanner">
+    <rect x="35" y="25" width="1450" height="70" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5" rx="8" ry="8" />
+    <text x="60" y="52" class="header-title">CodeQuery System Architecture &#8212; UML Sequence Diagram</text>
+    <text x="60" y="74" class="header-subtitle">Interaction Workflow for Repository Ingestion, AST Code Parsing, Semantic Embedding, Vector Storage &amp; RAG Querying</text>
+    
+    <rect x="1340" y="44" width="125" height="28" fill="#F1F5F9" stroke="#CBD5E1" stroke-width="1" rx="14" ry="14" />
+    <circle cx="1358" cy="58" r="4.5" fill="#3B82F6" />
+    <text x="1370" y="62" font-family="'Segoe UI', Arial" font-size="11" font-weight="600" fill="#334155">UML 2.5</text>
+  </g>
+
+  <!-- ========================================================================= -->
+  <!-- LIFELINE HEADERS & WIRES                                                  -->
+  <!-- ========================================================================= -->
+  <!-- 1. Client / User (x = 80) -->
+  <line x1="80" y1="165" x2="80" y2="1245" class="lifeline-wire" />
+  <rect x="25" y="115" width="110" height="48" class="actor-box" />
+  <text x="80" y="136" class="actor-title">Client / User</text>
+  <text x="80" y="151" class="actor-sub">Browser / HTTP</text>
+
+  <!-- 2. APILayer (x = 240) -->
+  <line x1="240" y1="165" x2="240" y2="1245" class="lifeline-wire" />
+  <rect x="180" y="115" width="120" height="48" class="lifeline-box" stroke="#1E40AF" stroke-width="1.8" />
+  <text x="240" y="136" class="lifeline-title">APILayer</text>
+  <text x="240" y="151" class="lifeline-sub">FastAPI Routes</text>
+
+  <!-- 3. RepositoryService (x = 400) -->
+  <line x1="400" y1="165" x2="400" y2="1245" class="lifeline-wire" />
+  <rect x="335" y="115" width="130" height="48" class="lifeline-box" stroke="#4338CA" />
+  <text x="400" y="136" class="lifeline-title">RepositoryService</text>
+  <text x="400" y="151" class="lifeline-sub">git / Repo.clone</text>
+
+  <!-- 4. CodeParser (x = 560) -->
+  <line x1="560" y1="165" x2="560" y2="1245" class="lifeline-wire" />
+  <rect x="500" y="115" width="120" height="48" class="lifeline-box" stroke="#6366F1" />
+  <text x="560" y="136" class="lifeline-title">CodeParser</text>
+  <text x="560" y="151" class="lifeline-sub">Python ast</text>
+
+  <!-- 5. CodeChunker (x = 720) -->
+  <line x1="720" y1="165" x2="720" y2="1245" class="lifeline-wire" />
+  <rect x="660" y="115" width="120" height="48" class="lifeline-box" stroke="#0D9488" />
+  <text x="720" y="136" class="lifeline-title">CodeChunker</text>
+  <text x="720" y="151" class="lifeline-sub">Segmentation</text>
+
+  <!-- 6. EmbeddingService (x = 880) -->
+  <line x1="880" y1="165" x2="880" y2="1245" class="lifeline-wire" />
+  <rect x="815" y="115" width="130" height="48" class="lifeline-box" stroke="#059669" />
+  <text x="880" y="136" class="lifeline-title">EmbeddingService</text>
+  <text x="880" y="151" class="lifeline-sub">FastEmbed BAAI</text>
+
+  <!-- 7. VectorStore (x = 1040) -->
+  <line x1="1040" y1="165" x2="1040" y2="1245" class="lifeline-wire" />
+  <rect x="980" y="115" width="120" height="48" class="lifeline-box" stroke="#0284C7" />
+  <text x="1040" y="136" class="lifeline-title">VectorStore</text>
+  <text x="1040" y="151" class="lifeline-sub">ChromaDB Store</text>
+
+  <!-- 8. QueryService (x = 1200) -->
+  <line x1="1200" y1="165" x2="1200" y2="1245" class="lifeline-wire" />
+  <rect x="1135" y="115" width="130" height="48" class="lifeline-box" stroke="#D97706" />
+  <text x="1200" y="136" class="lifeline-title">QueryService</text>
+  <text x="1200" y="151" class="lifeline-sub">RAG Coordinator</text>
+
+  <!-- 9. Ollama LLM (x = 1360) -->
+  <line x1="1360" y1="165" x2="1360" y2="1245" class="lifeline-wire" />
+  <rect x="1300" y="115" width="120" height="48" class="lifeline-box" stroke="#EA580C" />
+  <text x="1360" y="136" class="lifeline-title">Ollama LLM</text>
+  <text x="1360" y="151" class="lifeline-sub">Qwen 2.5-Coder</text>
+
+
+  <!-- ========================================================================= -->
+  <!-- PHASE 1: REPOSITORY INGESTION & INDEXING WORKFLOW                         -->
+  <!-- ========================================================================= -->
+  <g id="Phase1_Banner">
+    <rect x="35" y="180" width="1450" height="34" class="phase-bg" />
+    <text x="55" y="202" class="phase-title">PHASE 1: Repository Ingestion &amp; Indexing Workflow</text>
+    <text x="430" y="202" class="phase-desc">[Endpoint: POST /analyze-repository &#8212; Clones repository, parses AST, creates semantic chunks, generates vectors &amp; stores in ChromaDB]</text>
+  </g>
+
+  <!-- Activation Bars for Phase 1 -->
+  <rect x="75" y="225" width="10" height="570" class="act-bar" />
+  <rect x="235" y="225" width="10" height="570" class="act-bar" />
+  <rect x="395" y="250" width="10" height="75" class="act-bar-purple" />
+  <rect x="555" y="355" width="10" height="80" class="act-bar-purple" />
+  <rect x="715" y="465" width="10" height="75" class="act-bar-emerald" />
+  <rect x="875" y="570" width="10" height="85" class="act-bar-emerald" />
+  <rect x="1035" y="685" width="10" height="75" class="act-bar" />
+
+  <!-- 1.1 Client -> APILayer: POST /analyze-repository -->
+  <line x1="85" y1="235" x2="233" y2="235" class="msg-sync" marker-end="url(#arr-solid)" />
+  <polygon points="227,231 227,239 235,235" fill="#1E293B" />
+  <text x="95" y="230" class="msg-text">1. POST /analyze-repository { repository_url }</text>
+
+  <!-- 1.2 APILayer -> RepositoryService: clone_repository -->
+  <line x1="245" y1="255" x2="393" y2="255" class="msg-sync" marker-end="url(#arr-solid)" />
+  <polygon points="387,251 387,259 395,255" fill="#1E293B" />
+  <text x="255" y="250" class="msg-text">2. clone_repository(repository_url)</text>
+
+  <!-- RepositoryService self-call (cache check / git clone) -->
+  <path d="M 405 270 L 440 270 L 440 295 L 407 295" class="msg-sync" marker-end="url(#arr-solid)" />
+  <polygon points="413,291 413,299 405,295" fill="#1E293B" />
+  <text x="448" y="286" font-family="'Consolas', monospace" font-size="9.5" fill="#475569">Check cache; if missing: Repo.clone_from(depth=1)</text>
+
+  <!-- 1.3 RepositoryService -> APILayer: repository_path -->
+  <line x1="395" y1="320" x2="247" y2="320" class="msg-reply" marker-end="url(#arr-dash)" />
+  <polygon points="253,316 253,324 245,320" fill="#475569" />
+  <text x="260" y="314" class="msg-ret-text">return repository_path: str</text>
+
+  <!-- 1.4 APILayer -> CodeParser: scan_repository -->
+  <line x1="245" y1="360" x2="553" y2="360" class="msg-sync" marker-end="url(#arr-solid)" />
+  <polygon points="547,356 547,364 555,360" fill="#1E293B" />
+  <text x="255" y="354" class="msg-text">3. scan_repository(repository_path, include_tests=False)</text>
+
+  <!-- CodeParser self-call (ast.parse) -->
+  <path d="M 565 375 L 600 375 L 600 405 L 567 405" class="msg-sync" marker-end="url(#arr-solid)" />
+  <polygon points="573,401 573,409 565,405" fill="#1E293B" />
+  <text x="608" y="394" font-family="'Consolas', monospace" font-size="9.5" fill="#475569">Filter excluded dirs &amp; ast.parse() AST code trees</text>
+
+  <!-- 1.5 CodeParser -> APILayer: parsed_files -->
+  <line x1="555" y1="430" x2="247" y2="430" class="msg-reply" marker-end="url(#arr-dash)" />
+  <polygon points="253,426 253,434 245,430" fill="#475569" />
+  <text x="260" y="424" class="msg-ret-text">return parsed_files: list[dict] (functions, classes, calls, imports)</text>
+
+  <!-- 1.6 APILayer -> CodeChunker: create_code_chunks -->
+  <line x1="245" y1="470" x2="713" y2="470" class="msg-sync" marker-end="url(#arr-solid)" />
+  <polygon points="707,466 707,474 715,470" fill="#1E293B" />
+  <text x="255" y="464" class="msg-text">4. index_repository() &#8594; create_code_chunks(parsed_file)</text>
+
+  <!-- CodeChunker self-call (split chunks) -->
+  <path d="M 725 485 L 760 485 L 760 515 L 727 515" class="msg-sync" marker-end="url(#arr-solid)" />
+  <polygon points="733,511 733,519 725,515" fill="#1E293B" />
+  <text x="768" y="504" font-family="'Consolas', monospace" font-size="9.5" fill="#475569">Extract method/function blocks; split if &gt; 1500 chars</text>
+
+  <!-- 1.7 CodeChunker -> APILayer: chunks -->
+  <line x1="715" y1="535" x2="247" y2="535" class="msg-reply" marker-end="url(#arr-dash)" />
+  <polygon points="253,531 253,539 245,535" fill="#475569" />
+  <text x="260" y="530" class="msg-ret-text">return all_chunks: list[dict] (filtered chunks &gt;= 100 chars)</text>
+
+  <!-- 1.8 APILayer -> EmbeddingService: generate_embeddings_parallel -->
+  <line x1="245" y1="575" x2="873" y2="575" class="msg-sync" marker-end="url(#arr-solid)" />
+  <polygon points="867,571 867,579 875,575" fill="#1E293B" />
+  <text x="255" y="570" class="msg-text">5. generate_embeddings_parallel(texts, batch_size=50, max_workers=3)</text>
+
+  <!-- EmbeddingService self-call (FastEmbed ONNX) -->
+  <path d="M 885 590 L 920 590 L 920 620 L 887 620" class="msg-sync" marker-end="url(#arr-solid)" />
+  <polygon points="893,616 893,624 885,620" fill="#1E293B" />
+  <text x="928" y="609" font-family="'Consolas', monospace" font-size="9.5" fill="#475569">Lookup _EMBEDDING_CACHE; FastEmbed ONNX threadpool</text>
+
+  <!-- 1.9 EmbeddingService -> APILayer: embeddings -->
+  <line x1="875" y1="650" x2="247" y2="650" class="msg-reply" marker-end="url(#arr-dash)" />
+  <polygon points="253,646 253,654 245,650" fill="#475569" />
+  <text x="260" y="644" class="msg-ret-text">return embeddings: list[list[float]] (384-dimensional dense vectors)</text>
+
+  <!-- 1.10 APILayer -> VectorStore: add_code_chunks -->
+  <line x1="245" y1="690" x2="1033" y2="690" class="msg-sync" marker-end="url(#arr-solid)" />
+  <polygon points="1027,686 1027,694 1035,690" fill="#1E293B" />
+  <text x="255" y="684" class="msg-text">6. add_code_chunks(chunk_ids, embeddings, codes, metadatas, batch_size=500)</text>
+
+  <!-- VectorStore self-call (ChromaDB upsert) -->
+  <path d="M 1045 705 L 1080 705 L 1080 735 L 1047 735" class="msg-sync" marker-end="url(#arr-solid)" />
+  <polygon points="1053,731 1053,739 1045,735" fill="#1E293B" />
+  <text x="1088" y="724" font-family="'Consolas', monospace" font-size="9.5" fill="#475569">collection.upsert() into ChromaDB 'code_chunks_fast'</text>
+
+  <!-- 1.11 VectorStore -> APILayer: ok -->
+  <line x1="1035" y1="755" x2="247" y2="755" class="msg-reply" marker-end="url(#arr-dash)" />
+  <polygon points="253,751 253,759 245,755" fill="#475569" />
+  <text x="260" y="750" class="msg-ret-text">return { files: N, chunks: M, total_time: T }</text>
+
+  <!-- 1.12 APILayer -> Client: JSON Success -->
+  <line x1="235" y1="785" x2="87" y2="785" class="msg-reply" marker-end="url(#arr-dash)" />
+  <polygon points="93,781 93,789 85,785" fill="#475569" />
+  <text x="95" y="780" class="msg-ret-text">7. HTTP 200 { status: "success", files_analyzed, chunks_indexed, total_time_seconds }</text>
+
+
+  <!-- ========================================================================= -->
+  <!-- PHASE 2: NATURAL LANGUAGE CODE QUERY & RAG WORKFLOW                       -->
+  <!-- ========================================================================= -->
+  <g id="Phase2_Banner">
+    <rect x="35" y="830" width="1450" height="34" class="phase-bg" />
+    <text x="55" y="852" class="phase-title">PHASE 2: Semantic Code Query &amp; RAG Answer Generation Workflow</text>
+    <text x="500" y="852" class="phase-desc">[Endpoint: POST /query &#8212; Converts question to vector, retrieves top-3 matching chunks from ChromaDB, prompts local LLM]</text>
+  </g>
+
+  <!-- Activation Bars for Phase 2 -->
+  <rect x="75" y="875" width="10" height="345" class="act-bar" />
+  <rect x="235" y="875" width="10" height="345" class="act-bar" />
+  <rect x="1195" y="895" width="10" height="305" class="act-bar-amber" />
+  <rect x="875" y="920" width="10" height="50" class="act-bar-emerald" />
+  <rect x="1035" y="990" width="10" height="55" class="act-bar" />
+  <rect x="1355" y="1080" width="10" height="65" class="act-bar-amber" />
+
+  <!-- 2.1 Client -> APILayer: POST /query -->
+  <line x1="85" y1="885" x2="233" y2="885" class="msg-sync" marker-end="url(#arr-solid)" />
+  <polygon points="227,881 227,889 235,885" fill="#1E293B" />
+  <text x="95" y="880" class="msg-text">1. POST /query { question: "...", code: "..." }</text>
+
+  <!-- 2.2 APILayer -> QueryService: answer_code_question -->
+  <line x1="245" y1="905" x2="1193" y2="905" class="msg-sync" marker-end="url(#arr-solid)" />
+  <polygon points="1187,901 1187,909 1195,905" fill="#1E293B" />
+  <text x="255" y="900" class="msg-text">2. answer_code_question(question: str)</text>
+
+  <!-- 2.3 QueryService -> EmbeddingService: generate_embedding -->
+  <line x1="1195" y1="925" x2="887" y2="925" class="msg-sync" marker-end="url(#arr-solid)" />
+  <polygon points="893,921 893,929 885,925" fill="#1E293B" />
+  <text x="910" y="920" class="msg-text">3. generate_embedding(question: str)</text>
+
+  <!-- 2.4 EmbeddingService -> QueryService: query_embedding -->
+  <line x1="885" y1="960" x2="1193" y2="960" class="msg-reply" marker-end="url(#arr-dash)" />
+  <polygon points="1187,956 1187,964 1195,960" fill="#475569" />
+  <text x="930" y="955" class="msg-ret-text">return query_embedding: list[float] (384-dim vector)</text>
+
+  <!-- 2.5 QueryService -> VectorStore: search_code -->
+  <line x1="1195" y1="995" x2="1047" y2="995" class="msg-sync" marker-end="url(#arr-solid)" />
+  <polygon points="1053,991 1053,999 1045,995" fill="#1E293B" />
+  <text x="1065" y="990" class="msg-text">4. search_code(query_embedding, number_of_results=3)</text>
+
+  <!-- 2.6 VectorStore -> QueryService: results -->
+  <line x1="1045" y1="1035" x2="1193" y2="1035" class="msg-reply" marker-end="url(#arr-dash)" />
+  <polygon points="1187,1031 1187,1039 1195,1035" fill="#475569" />
+  <text x="1065" y="1030" class="msg-ret-text">return results: dict (top-3 retrieved code chunks &amp; metadata)</text>
+
+  <!-- QueryService self-call (assemble prompt) -->
+  <path d="M 1205 1045 L 1240 1045 L 1240 1070 L 1207 1070" class="msg-sync" marker-end="url(#arr-solid)" />
+  <polygon points="1213,1066 1213,1074 1205,1070" fill="#1E293B" />
+  <text x="1248" y="1062" font-family="'Consolas', monospace" font-size="9.5" fill="#475569">Extract chunks, format context &amp; construct RAG prompt</text>
+
+  <!-- 2.7 QueryService -> Ollama LLM: ask_local_model -->
+  <line x1="1205" y1="1085" x2="1353" y2="1085" class="msg-sync" marker-end="url(#arr-solid)" />
+  <polygon points="1347,1081 1347,1089 1355,1085" fill="#1E293B" />
+  <text x="1215" y="1080" class="msg-text">5. ask_local_model(code=context, question=prompt)</text>
+  <text x="1215" y="1098" font-family="'Consolas', monospace" font-size="9" fill="#94A3B8">POST http://localhost:11434/api/generate {"model": "qwen2.5-coder:1.5b", "temp": 0.2}</text>
+
+  <!-- 2.8 Ollama LLM -> QueryService: answer -->
+  <line x1="1355" y1="1135" x2="1207" y2="1135" class="msg-reply" marker-end="url(#arr-dash)" />
+  <polygon points="1213,1131 1213,1139 1205,1135" fill="#475569" />
+  <text x="1225" y="1130" class="msg-ret-text">return response["response"]: str (concise code explanation)</text>
+
+  <!-- 2.9 QueryService -> APILayer: answer -->
+  <line x1="1195" y1="1170" x2="247" y2="1170" class="msg-reply" marker-end="url(#arr-dash)" />
+  <polygon points="253,1166 253,1174 245,1170" fill="#475569" />
+  <text x="260" y="1165" class="msg-ret-text">return answer: str</text>
+
+  <!-- 2.10 APILayer -> Client: JSON Answer -->
+  <line x1="235" y1="1205" x2="87" y2="1205" class="msg-reply" marker-end="url(#arr-dash)" />
+  <polygon points="93,1201 93,1209 85,1205" fill="#475569" />
+  <text x="95" y="1200" class="msg-ret-text">6. HTTP 200 { question: request.question, answer: answer }</text>
+
+  <!-- ========================================================================= -->
+  <!-- LIFELINE FOOTER BOXES                                                     -->
+  <!-- ========================================================================= -->
+  <rect x="25" y="1235" width="110" height="35" class="actor-box" />
+  <text x="80" y="1257" class="actor-title">Client / User</text>
+
+  <rect x="180" y="1235" width="120" height="35" class="lifeline-box" stroke="#1E40AF" />
+  <text x="240" y="1257" class="lifeline-title">APILayer</text>
+
+  <rect x="335" y="1235" width="130" height="35" class="lifeline-box" stroke="#4338CA" />
+  <text x="400" y="1257" class="lifeline-title">RepositoryService</text>
+
+  <rect x="500" y="1235" width="120" height="35" class="lifeline-box" stroke="#6366F1" />
+  <text x="560" y="1257" class="lifeline-title">CodeParser</text>
+
+  <rect x="660" y="1235" width="120" height="35" class="lifeline-box" stroke="#0D9488" />
+  <text x="720" y="1257" class="lifeline-title">CodeChunker</text>
+
+  <rect x="815" y="1235" width="130" height="35" class="lifeline-box" stroke="#059669" />
+  <text x="880" y="1257" class="lifeline-title">EmbeddingService</text>
+
+  <rect x="980" y="1235" width="120" height="35" class="lifeline-box" stroke="#0284C7" />
+  <text x="1040" y="1257" class="lifeline-title">VectorStore</text>
+
+  <rect x="1135" y="1235" width="130" height="35" class="lifeline-box" stroke="#D97706" />
+  <text x="1200" y="1257" class="lifeline-title">QueryService</text>
+
+  <rect x="1300" y="1235" width="120" height="35" class="lifeline-box" stroke="#EA580C" />
+  <text x="1360" y="1257" class="lifeline-title">Ollama LLM</text>
+
+  <!-- ========================================================================= -->
+  <!-- LEGEND                                                                    -->
+  <!-- ========================================================================= -->
+  <g id="Legend">
+    <rect x="35" y="1285" width="1450" height="42" class="legend-box" />
+    <text x="55" y="1311" class="legend-title">UML 2.5 SEQUENCE NOTATION:</text>
+    
+    <line x1="260" y1="1307" x2="310" y2="1307" class="msg-sync" />
+    <polygon points="304,1303 304,1311 312,1307" fill="#1E293B" />
+    <text x="320" y="1311" class="legend-text">Synchronous Call</text>
+
+    <line x1="470" y1="1307" x2="520" y2="1307" class="msg-reply" />
+    <polygon points="514,1303 514,1311 522,1307" fill="#475569" />
+    <text x="530" y="1311" class="legend-text">Return / Reply Message</text>
+
+    <rect x="710" y="1300" width="14" height="14" class="act-bar" />
+    <text x="730" y="1311" class="legend-text">API Activation</text>
+
+    <rect x="850" y="1300" width="14" height="14" class="act-bar-purple" />
+    <text x="870" y="1311" class="legend-text">Repo / Parser</text>
+
+    <rect x="990" y="1300" width="14" height="14" class="act-bar-emerald" />
+    <text x="1010" y="1311" class="legend-text">Chunker / Embeddings</text>
+
+    <rect x="1170" y="1300" width="14" height="14" class="act-bar-amber" />
+    <text x="1190" y="1311" class="legend-text">RAG / Local LLM Inference</text>
+  </g>
+
+</svg>

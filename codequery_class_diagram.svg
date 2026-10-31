@@ -1,0 +1,402 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1480 1100" width="100%" height="100%">
+  <defs>
+    <style><![CDATA[
+      .diagram-bg { fill: #F8FAFC; }
+      .header-title { font-family: 'Segoe UI', Arial, sans-serif; font-size: 21px; font-weight: 700; fill: #0F172A; }
+      .header-subtitle { font-family: 'Segoe UI', Arial, sans-serif; font-size: 13px; font-weight: 400; fill: #475569; }
+      
+      /* UML Class Box Outer & Compartments */
+      .class-box { fill: #FFFFFF; stroke: #CBD5E1; stroke-width: 1.5; rx: 8; ry: 8; }
+      .box-divider { stroke: #E2E8F0; stroke-width: 1.2; }
+      
+      /* Compartment 1: Headers */
+      .header-api { fill: #1E40AF; }
+      .header-repo { fill: #4338CA; }
+      .header-parser { fill: #6366F1; }
+      .header-query { fill: #D97706; }
+      .header-chunker { fill: #0D9488; }
+      .header-embedding { fill: #059669; }
+      .header-vector { fill: #0284C7; }
+      
+      .stereotype { font-family: 'Segoe UI', Arial, sans-serif; font-size: 10px; font-weight: 600; fill: #E0E7FF; letter-spacing: 0.5px; text-anchor: middle; }
+      .stereotype-amber { font-family: 'Segoe UI', Arial, sans-serif; font-size: 10px; font-weight: 600; fill: #FEF3C7; letter-spacing: 0.5px; text-anchor: middle; }
+      .stereotype-teal { font-family: 'Segoe UI', Arial, sans-serif; font-size: 10px; font-weight: 600; fill: #CCFBF1; letter-spacing: 0.5px; text-anchor: middle; }
+      .stereotype-emerald { font-family: 'Segoe UI', Arial, sans-serif; font-size: 10px; font-weight: 600; fill: #D1FAE5; letter-spacing: 0.5px; text-anchor: middle; }
+      .stereotype-sky { font-family: 'Segoe UI', Arial, sans-serif; font-size: 10px; font-weight: 600; fill: #E0F2FE; letter-spacing: 0.5px; text-anchor: middle; }
+      
+      .class-title { font-family: 'Segoe UI', Arial, sans-serif; font-size: 16px; font-weight: 700; fill: #FFFFFF; text-anchor: middle; }
+      .module-path { font-family: 'Consolas', 'Courier New', monospace; font-size: 10.5px; fill: #F1F5F9; text-anchor: middle; }
+      
+      /* Compartment Labels */
+      .compartment-label { font-family: 'Segoe UI', Arial, sans-serif; font-size: 9.5px; font-weight: 700; fill: #94A3B8; letter-spacing: 0.5px; }
+      
+      /* Compartment 2 & 3: Attributes and Methods */
+      .member-text { font-family: 'Consolas', 'Courier New', monospace; font-size: 11.5px; fill: #1E293B; }
+      .member-visibility-plus { font-family: 'Consolas', 'Courier New', monospace; font-size: 12px; font-weight: 700; fill: #16A34A; }
+      .member-visibility-minus { font-family: 'Consolas', 'Courier New', monospace; font-size: 12px; font-weight: 700; fill: #DC2626; }
+      .member-type { fill: #475569; }
+      .member-default { fill: #64748B; font-style: italic; }
+      .note-text { font-family: 'Segoe UI', Arial, sans-serif; font-size: 10px; fill: #64748B; font-style: italic; }
+      
+      /* Relationships */
+      .rel-solid { stroke: #475569; stroke-width: 1.8; fill: none; }
+      .rel-dash { stroke: #64748B; stroke-width: 1.6; stroke-dasharray: 5,4; fill: none; }
+      .badge-bg { fill: #FFFFFF; stroke: #CBD5E1; stroke-width: 1; rx: 4; ry: 4; }
+      .badge-text { font-family: 'Segoe UI', Arial, sans-serif; font-size: 9.5px; font-weight: 600; fill: #334155; text-anchor: middle; }
+      
+      /* Legend */
+      .legend-box { fill: #FFFFFF; stroke: #E2E8F0; stroke-width: 1.2; rx: 8; ry: 8; }
+      .legend-title { font-family: 'Segoe UI', Arial, sans-serif; font-size: 11.5px; font-weight: 700; fill: #334155; }
+      .legend-text { font-family: 'Segoe UI', Arial, sans-serif; font-size: 10.5px; fill: #64748B; }
+    ]]></style>
+
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#475569" />
+    </marker>
+    <marker id="arrow-dash" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#64748B" />
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1480" height="1100" class="diagram-bg" />
+
+  <!-- ========================================================================= -->
+  <!-- TITLE BANNER                                                              -->
+  <!-- ========================================================================= -->
+  <g id="TitleBanner">
+    <rect x="40" y="25" width="1400" height="70" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5" rx="8" ry="8" />
+    <text x="65" y="52" class="header-title">CodeQuery System Architecture &#8212; Conceptual UML Class Diagram</text>
+    <text x="65" y="74" class="header-subtitle">Module Responsibilities, Attributes, and Operations mapped to CodeQuery Implementation (FastAPI, Python AST, FastEmbed, ChromaDB, Ollama)</text>
+    
+    <rect x="1290" y="44" width="135" height="28" fill="#F1F5F9" stroke="#CBD5E1" stroke-width="1" rx="14" ry="14" />
+    <circle cx="1308" cy="58" r="4.5" fill="#10B981" />
+    <text x="1320" y="62" font-family="'Segoe UI', Arial" font-size="11" font-weight="600" fill="#334155">Actual Backend</text>
+  </g>
+
+  <!-- ========================================================================= -->
+  <!-- 1. API Layer (Top Center)                                                  -->
+  <!-- ========================================================================= -->
+  <g id="Class_APILayer">
+    <rect x="490" y="125" width="500" height="230" class="class-box" />
+    <!-- Compartment 1: Header -->
+    <path d="M 490 133 A 8 8 0 0 1 498 125 L 982 125 A 8 8 0 0 1 990 133 L 990 185 L 490 185 Z" class="header-api" />
+    <text x="740" y="145" class="stereotype">&#171;API Layer / Controller&#187;</text>
+    <text x="740" y="163" class="class-title">APILayer</text>
+    <text x="740" y="177" class="module-path">backend/app/api/routes.py &amp; backend/app/main.py</text>
+    
+    <!-- Compartment 2: Attributes -->
+    <text x="505" y="200" class="compartment-label">ATTRIBUTES &amp; STATE</text>
+    <text x="505" y="217" class="member-visibility-minus">-</text>
+    <text x="520" y="217" class="member-text">app : <tspan class="member-type">FastAPI</tspan></text>
+    <text x="505" y="233" class="member-visibility-minus">-</text>
+    <text x="520" y="233" class="member-text">router : <tspan class="member-type">APIRouter</tspan></text>
+    <text x="505" y="249" class="member-visibility-minus">-</text>
+    <text x="520" y="249" class="member-text">cors_origins : <tspan class="member-type">list[str]</tspan> <tspan class="member-default">= ["http://localhost:5173", ...]</tspan></text>
+
+    <!-- Divider -->
+    <line x1="490" y1="260" x2="990" y2="260" class="box-divider" />
+
+    <!-- Compartment 3: Methods -->
+    <text x="505" y="276" class="compartment-label">METHODS &amp; OPERATIONS (FASTAPI ROUTE HANDLERS)</text>
+    <text x="505" y="293" class="member-visibility-plus">+</text>
+    <text x="520" y="293" class="member-text">health_check() : <tspan class="member-type">dict</tspan>  <tspan class="member-default">[GET /health]</tspan></text>
+    <text x="505" y="309" class="member-visibility-plus">+</text>
+    <text x="520" y="309" class="member-text">analyze_repository(request: <tspan class="member-type">RepositoryRequest</tspan>) : <tspan class="member-type">dict</tspan>  <tspan class="member-default">[POST /analyze-repository]</tspan></text>
+    <text x="505" y="325" class="member-visibility-plus">+</text>
+    <text x="520" y="325" class="member-text">query_code(request: <tspan class="member-type">QueryRequest</tspan>) : <tspan class="member-type">dict</tspan>  <tspan class="member-default">[POST /query]</tspan></text>
+    <text x="505" y="341" class="member-visibility-plus">+</text>
+    <text x="520" y="341" class="member-text">home() : <tspan class="member-type">dict</tspan>  <tspan class="member-default">[GET /]</tspan></text>
+  </g>
+
+  <!-- ========================================================================= -->
+  <!-- 2. RepositoryService (Middle Row Left)                                    -->
+  <!-- ========================================================================= -->
+  <g id="Class_RepositoryService">
+    <rect x="40" y="410" width="420" height="200" class="class-box" />
+    <!-- Compartment 1: Header -->
+    <path d="M 40 418 A 8 8 0 0 1 48 410 L 452 410 A 8 8 0 0 1 460 418 L 460 470 L 40 470 Z" class="header-repo" />
+    <text x="250" y="430" class="stereotype">&#171;Service / Git Manager&#187;</text>
+    <text x="250" y="448" class="class-title">RepositoryService</text>
+    <text x="250" y="462" class="module-path">backend/app/services/repository_service.py</text>
+    
+    <!-- Compartment 2: Attributes -->
+    <text x="55" y="486" class="compartment-label">ATTRIBUTES &amp; STATE</text>
+    <text x="55" y="505" class="member-visibility-minus">-</text>
+    <text x="70" y="505" class="member-text">REPOSITORIES_DIR : <tspan class="member-type">str</tspan> <tspan class="member-default">= "backend/data/repositories"</tspan></text>
+
+    <!-- Divider -->
+    <line x1="40" y1="522" x2="460" y2="522" class="box-divider" />
+
+    <!-- Compartment 3: Methods -->
+    <text x="55" y="538" class="compartment-label">METHODS &amp; OPERATIONS</text>
+    <text x="55" y="556" class="member-visibility-plus">+</text>
+    <text x="70" y="556" class="member-text">clone_repository(repository_url: <tspan class="member-type">str</tspan>) : <tspan class="member-type">str</tspan></text>
+    <text x="55" y="574" class="member-visibility-minus">-</text>
+    <text x="70" y="574" class="member-text">remove_readonly(func: <tspan class="member-type">Callable</tspan>, path: <tspan class="member-type">str</tspan>, exc_info) : <tspan class="member-type">void</tspan></text>
+    <text x="70" y="594" class="note-text">&#8226; Clones shallow repo (depth=1) &amp; manages cached checkouts</text>
+  </g>
+
+  <!-- ========================================================================= -->
+  <!-- 3. CodeParser (Middle Row Center)                                         -->
+  <!-- ========================================================================= -->
+  <g id="Class_CodeParser">
+    <rect x="530" y="410" width="420" height="215" class="class-box" />
+    <!-- Compartment 1: Header -->
+    <path d="M 530 418 A 8 8 0 0 1 538 410 L 942 410 A 8 8 0 0 1 950 418 L 950 470 L 530 470 Z" class="header-parser" />
+    <text x="740" y="430" class="stereotype">&#171;Service / AST Parser&#187;</text>
+    <text x="740" y="448" class="class-title">CodeParser</text>
+    <text x="740" y="462" class="module-path">backend/app/services/code_parser.py</text>
+    
+    <!-- Compartment 2: Attributes -->
+    <text x="545" y="486" class="compartment-label">ATTRIBUTES &amp; STATE</text>
+    <text x="545" y="504" class="member-visibility-minus">-</text>
+    <text x="560" y="504" class="member-text">DEFAULT_EXCLUDED_DIRS : <tspan class="member-type">set[str]</tspan></text>
+    <text x="560" y="518" class="note-text">{.git, venv, node_modules, tests, docs, build, ...}</text>
+
+    <!-- Divider -->
+    <line x1="530" y1="528" x2="950" y2="528" class="box-divider" />
+
+    <!-- Compartment 3: Methods -->
+    <text x="545" y="543" class="compartment-label">METHODS &amp; OPERATIONS</text>
+    <text x="545" y="562" class="member-visibility-plus">+</text>
+    <text x="560" y="562" class="member-text">scan_repository(path: <tspan class="member-type">str</tspan>, include_tests=<tspan class="member-default">False</tspan>) : <tspan class="member-type">list[dict]</tspan></text>
+    <text x="545" y="582" class="member-visibility-plus">+</text>
+    <text x="560" y="582" class="member-text">parse_python_file(file_path: <tspan class="member-type">str</tspan>) : <tspan class="member-type">dict</tspan></text>
+    <text x="560" y="604" class="note-text">&#8226; AST traversal: classes, functions, calls &amp; import graphs</text>
+  </g>
+
+  <!-- ========================================================================= -->
+  <!-- 4. QueryService (Middle Row Right)                                        -->
+  <!-- ========================================================================= -->
+  <g id="Class_QueryService">
+    <rect x="1020" y="410" width="420" height="225" class="class-box" />
+    <!-- Compartment 1: Header -->
+    <path d="M 1020 418 A 8 8 0 0 1 1028 410 L 1432 410 A 8 8 0 0 1 1440 418 L 1440 470 L 1020 470 Z" class="header-query" />
+    <text x="1230" y="430" class="stereotype-amber">&#171;Service / RAG Coordinator&#187;</text>
+    <text x="1230" y="448" class="class-title">QueryService</text>
+    <text x="1230" y="462" class="module-path">backend/app/services/rag_service.py &amp; llm_service.py</text>
+    
+    <!-- Compartment 2: Attributes -->
+    <text x="1035" y="486" class="compartment-label">ATTRIBUTES &amp; CONFIGURATION</text>
+    <text x="1035" y="504" class="member-visibility-minus">-</text>
+    <text x="1050" y="504" class="member-text">OLLAMA_URL : <tspan class="member-type">str</tspan> <tspan class="member-default">= "http://localhost:11434/api/generate"</tspan></text>
+    <text x="1035" y="521" class="member-visibility-minus">-</text>
+    <text x="1050" y="521" class="member-text">MODEL_NAME : <tspan class="member-type">str</tspan> <tspan class="member-default">= "qwen2.5-coder:1.5b"</tspan></text>
+    <text x="1035" y="538" class="member-visibility-minus">-</text>
+    <text x="1050" y="538" class="member-text">default_top_k : <tspan class="member-type">int</tspan> <tspan class="member-default">= 3</tspan></text>
+
+    <!-- Divider -->
+    <line x1="1020" y1="548" x2="1440" y2="548" class="box-divider" />
+
+    <!-- Compartment 3: Methods -->
+    <text x="1035" y="563" class="compartment-label">METHODS &amp; OPERATIONS</text>
+    <text x="1035" y="582" class="member-visibility-plus">+</text>
+    <text x="1050" y="582" class="member-text">answer_code_question(question: <tspan class="member-type">str</tspan>) : <tspan class="member-type">str</tspan></text>
+    <text x="1035" y="601" class="member-visibility-plus">+</text>
+    <text x="1050" y="601" class="member-text">ask_local_model(code: <tspan class="member-type">str</tspan>, question: <tspan class="member-type">str</tspan>) : <tspan class="member-type">str</tspan></text>
+    <text x="1050" y="621" class="note-text">&#8226; Coordinates question embedding, ChromaDB search &amp; LLM answer</text>
+  </g>
+
+  <!-- ========================================================================= -->
+  <!-- 5. CodeChunker (Bottom Row Left)                                          -->
+  <!-- ========================================================================= -->
+  <g id="Class_CodeChunker">
+    <rect x="40" y="700" width="420" height="210" class="class-box" />
+    <!-- Compartment 1: Header -->
+    <path d="M 40 708 A 8 8 0 0 1 48 700 L 452 700 A 8 8 0 0 1 460 708 L 460 760 L 40 760 Z" class="header-chunker" />
+    <text x="250" y="720" class="stereotype-teal">&#171;Service / Code Segmentation&#187;</text>
+    <text x="250" y="738" class="class-title">CodeChunker</text>
+    <text x="250" y="752" class="module-path">backend/app/services/code_chunker.py</text>
+    
+    <!-- Compartment 2: Attributes -->
+    <text x="55" y="776" class="compartment-label">ATTRIBUTES &amp; CONSTANTS</text>
+    <text x="55" y="795" class="member-visibility-minus">-</text>
+    <text x="70" y="795" class="member-text">MAX_CHUNK_SIZE : <tspan class="member-type">int</tspan> <tspan class="member-default">= 1500</tspan></text>
+
+    <!-- Divider -->
+    <line x1="40" y1="812" x2="460" y2="812" class="box-divider" />
+
+    <!-- Compartment 3: Methods -->
+    <text x="55" y="828" class="compartment-label">METHODS &amp; OPERATIONS</text>
+    <text x="55" y="847" class="member-visibility-plus">+</text>
+    <text x="70" y="847" class="member-text">create_code_chunks(parsed_file: <tspan class="member-type">dict</tspan>) : <tspan class="member-type">list[dict]</tspan></text>
+    <text x="55" y="867" class="member-visibility-plus">+</text>
+    <text x="70" y="867" class="member-text">split_large_chunk(chunk: <tspan class="member-type">dict</tspan>) : <tspan class="member-type">list[dict]</tspan></text>
+    <text x="70" y="889" class="note-text">&#8226; Splits classes &amp; functions along line boundaries</text>
+    <text x="70" y="903" class="note-text">&#8226; Avoids duplicating parent class code in method chunks</text>
+  </g>
+
+  <!-- ========================================================================= -->
+  <!-- 6. EmbeddingService (Bottom Row Center)                                   -->
+  <!-- ========================================================================= -->
+  <g id="Class_EmbeddingService">
+    <rect x="530" y="700" width="420" height="285" class="class-box" />
+    <!-- Compartment 1: Header -->
+    <path d="M 530 708 A 8 8 0 0 1 538 700 L 942 700 A 8 8 0 0 1 950 708 L 950 760 L 530 760 Z" class="header-embedding" />
+    <text x="740" y="720" class="stereotype-emerald">&#171;Service / Vector Embeddings&#187;</text>
+    <text x="740" y="738" class="class-title">EmbeddingService</text>
+    <text x="740" y="752" class="module-path">backend/app/services/embedding_service.py</text>
+    
+    <!-- Compartment 2: Attributes -->
+    <text x="545" y="776" class="compartment-label">ATTRIBUTES &amp; CACHE</text>
+    <text x="545" y="793" class="member-visibility-minus">-</text>
+    <text x="560" y="793" class="member-text">EMBEDDING_MODEL_NAME : <tspan class="member-type">str</tspan> <tspan class="member-default">= "BAAI/bge-small-en-v1.5"</tspan></text>
+    <text x="545" y="809" class="member-visibility-minus">-</text>
+    <text x="560" y="809" class="member-text">EMBEDDING_DIMENSIONS : <tspan class="member-type">int</tspan> <tspan class="member-default">= 384</tspan></text>
+    <text x="545" y="825" class="member-visibility-minus">-</text>
+    <text x="560" y="825" class="member-text">_embedding_model : <tspan class="member-type">TextEmbedding | None</tspan></text>
+    <text x="545" y="841" class="member-visibility-minus">-</text>
+    <text x="560" y="841" class="member-text">_EMBEDDING_CACHE : <tspan class="member-type">dict[str, list[float]]</tspan></text>
+    <text x="545" y="857" class="member-visibility-minus">-</text>
+    <text x="560" y="857" class="member-text">MAX_CACHE_SIZE : <tspan class="member-type">int</tspan> <tspan class="member-default">= 50000</tspan></text>
+
+    <!-- Divider -->
+    <line x1="530" y1="868" x2="950" y2="868" class="box-divider" />
+
+    <!-- Compartment 3: Methods -->
+    <text x="545" y="883" class="compartment-label">METHODS &amp; OPERATIONS</text>
+    <text x="545" y="900" class="member-visibility-plus">+</text>
+    <text x="560" y="900" class="member-text">generate_embedding(text: <tspan class="member-type">str</tspan>) : <tspan class="member-type">list[float]</tspan></text>
+    <text x="545" y="917" class="member-visibility-plus">+</text>
+    <text x="560" y="917" class="member-text">generate_embeddings(texts: <tspan class="member-type">list[str]</tspan>) : <tspan class="member-type">list[list[float]]</tspan></text>
+    <text x="545" y="934" class="member-visibility-plus">+</text>
+    <text x="560" y="934" class="member-text">generate_embeddings_parallel(texts, batch_size=128) : <tspan class="member-type">list</tspan></text>
+    <text x="545" y="951" class="member-visibility-minus">-</text>
+    <text x="560" y="951" class="member-text">get_model() : <tspan class="member-type">TextEmbedding</tspan></text>
+    <text x="545" y="968" class="member-visibility-minus">-</text>
+    <text x="560" y="968" class="member-text">_hash_text(text: <tspan class="member-type">str</tspan>) : <tspan class="member-type">str (SHA-256)</tspan></text>
+  </g>
+
+  <!-- ========================================================================= -->
+  <!-- 7. VectorStore (Bottom Row Right)                                         -->
+  <!-- ========================================================================= -->
+  <g id="Class_VectorStore">
+    <rect x="1020" y="700" width="420" height="240" class="class-box" />
+    <!-- Compartment 1: Header -->
+    <path d="M 1020 708 A 8 8 0 0 1 1028 700 L 1432 700 A 8 8 0 0 1 1440 708 L 1440 760 L 1020 760 Z" class="header-vector" />
+    <text x="1230" y="720" class="stereotype-sky">&#171;Service / ChromaDB Store&#187;</text>
+    <text x="1230" y="738" class="class-title">VectorStore</text>
+    <text x="1230" y="752" class="module-path">backend/app/services/vector_store.py</text>
+    
+    <!-- Compartment 2: Attributes -->
+    <text x="1035" y="776" class="compartment-label">ATTRIBUTES &amp; PERSISTENCE</text>
+    <text x="1035" y="794" class="member-visibility-minus">-</text>
+    <text x="1050" y="794" class="member-text">CHROMA_PATH : <tspan class="member-type">str</tspan> <tspan class="member-default">= "backend/data/chroma"</tspan></text>
+    <text x="1035" y="811" class="member-visibility-minus">-</text>
+    <text x="1050" y="811" class="member-text">client : <tspan class="member-type">chromadb.PersistentClient</tspan></text>
+    <text x="1035" y="828" class="member-visibility-minus">-</text>
+    <text x="1050" y="828" class="member-text">collection : <tspan class="member-type">Collection</tspan> <tspan class="member-default">("code_chunks_fast")</tspan></text>
+
+    <!-- Divider -->
+    <line x1="1020" y1="835" x2="1440" y2="835" class="box-divider" />
+
+    <!-- Compartment 3: Methods -->
+    <text x="1035" y="850" class="compartment-label">METHODS &amp; OPERATIONS</text>
+    <text x="1035" y="869" class="member-visibility-plus">+</text>
+    <text x="1050" y="869" class="member-text">add_code_chunk(chunk_id, emb, code, meta) : <tspan class="member-type">void</tspan></text>
+    <text x="1035" y="888" class="member-visibility-plus">+</text>
+    <text x="1050" y="888" class="member-text">add_code_chunks(ids, embs, codes, metas, batch=500) : <tspan class="member-type">void</tspan></text>
+    <text x="1035" y="907" class="member-visibility-plus">+</text>
+    <text x="1050" y="907" class="member-text">search_code(query_emb, n_results=5, repo=None) : <tspan class="member-type">dict</tspan></text>
+    <text x="1050" y="927" class="note-text">&#8226; Persistent on-disk vector index with metadata filtering</text>
+  </g>
+
+  <!-- ========================================================================= -->
+  <!-- RELATIONSHIPS & CONNECTORS                                                -->
+  <!-- ========================================================================= -->
+  <g id="Connectors">
+    <!-- 1. APILayer -> RepositoryService -->
+    <path d="M 540 355 L 540 382 L 250 382 L 250 404" class="rel-solid" marker-end="url(#arrow)" />
+    <polygon points="246,402 254,402 250,410" fill="#475569" />
+    <rect x="300" y="372" width="160" height="20" class="badge-bg" />
+    <text x="380" y="386" class="badge-text">&#171;1. clone_repository&#187;</text>
+
+    <!-- 2. APILayer -> CodeParser -->
+    <path d="M 740 355 L 740 404" class="rel-solid" marker-end="url(#arrow)" />
+    <polygon points="736,402 744,402 740,410" fill="#475569" />
+    <rect x="665" y="372" width="150" height="20" class="badge-bg" />
+    <text x="740" y="386" class="badge-text">&#171;2. scan_repository&#187;</text>
+
+    <!-- 3. APILayer -> QueryService -->
+    <path d="M 940 355 L 940 382 L 1230 382 L 1230 404" class="rel-solid" marker-end="url(#arrow)" />
+    <polygon points="1226,402 1234,402 1230,410" fill="#475569" />
+    <rect x="1025" y="372" width="170" height="20" class="badge-bg" />
+    <text x="1110" y="386" class="badge-text">&#171;answer_code_question&#187;</text>
+
+    <!-- 4. RepositoryService -> CodeParser -->
+    <line x1="460" y1="505" x2="524" y2="505" class="rel-solid" marker-end="url(#arrow)" />
+    <polygon points="522,501 522,509 530,505" fill="#475569" />
+    <rect x="466" y="495" width="60" height="20" class="badge-bg" />
+    <text x="496" y="509" class="badge-text">repo_path</text>
+
+    <!-- 5. CodeParser -> CodeChunker -->
+    <path d="M 600 625 L 600 665 L 250 665 L 250 694" class="rel-solid" marker-end="url(#arrow)" />
+    <polygon points="246,692 254,692 250,700" fill="#475569" />
+    <rect x="350" y="655" width="130" height="20" class="badge-bg" />
+    <text x="415" y="669" class="badge-text">parsed AST trees</text>
+
+    <!-- 6. CodeChunker -> EmbeddingService -->
+    <line x1="460" y1="800" x2="524" y2="800" class="rel-solid" marker-end="url(#arrow)" />
+    <polygon points="522,796 522,804 530,800" fill="#475569" />
+    <rect x="466" y="790" width="60" height="20" class="badge-bg" />
+    <text x="496" y="804" class="badge-text">chunk texts</text>
+
+    <!-- 7. EmbeddingService -> VectorStore -->
+    <line x1="950" y1="800" x2="1014" y2="800" class="rel-solid" marker-end="url(#arrow)" />
+    <polygon points="1012,796 1012,804 1020,800" fill="#475569" />
+    <rect x="956" y="790" width="60" height="20" class="badge-bg" />
+    <text x="986" y="804" class="badge-text">vectors</text>
+
+    <!-- 8. QueryService -> EmbeddingService -->
+    <path d="M 1070 635 L 1070 665 L 740 665 L 740 694" class="rel-dash" marker-end="url(#arrow-dash)" />
+    <polygon points="736,692 744,692 740,700" fill="#64748B" />
+    <rect x="830" y="655" width="160" height="20" class="badge-bg" />
+    <text x="910" y="669" class="badge-text">&#171;generate_embedding(q)&#187;</text>
+
+    <!-- 9. QueryService -> VectorStore -->
+    <path d="M 1230 635 L 1230 694" class="rel-solid" marker-end="url(#arrow)" />
+    <polygon points="1226,692 1234,692 1230,700" fill="#475569" />
+    <rect x="1165" y="655" width="130" height="20" class="badge-bg" />
+    <text x="1230" y="669" class="badge-text">&#171;search_code(top_k)&#187;</text>
+  </g>
+
+  <!-- ========================================================================= -->
+  <!-- LEGEND & UML NOTATION GUIDE (BOTTOM)                                      -->
+  <!-- ========================================================================= -->
+  <g id="Legend">
+    <rect x="40" y="1010" width="1400" height="65" class="legend-box" />
+    <text x="65" y="1034" class="legend-title">UML 2.5 NOTATION &amp; MODULE MAPPINGS:</text>
+    
+    <text x="65" y="1057" class="member-visibility-plus">+</text>
+    <text x="80" y="1057" class="legend-text">Public Operation</text>
+    
+    <text x="195" y="1057" class="member-visibility-minus">-</text>
+    <text x="210" y="1057" class="legend-text">Private / Internal Member</text>
+
+    <line x1="390" y1="1053" x2="440" y2="1053" class="rel-solid" />
+    <polygon points="436,1049 436,1057 444,1053" fill="#475569" />
+    <text x="455" y="1057" class="legend-text">Directed Call / Association</text>
+
+    <line x1="680" y1="1053" x2="730" y2="1053" class="rel-dash" />
+    <polygon points="726,1049 726,1057 734,1053" fill="#64748B" />
+    <text x="745" y="1057" class="legend-text">Dependency / Semantic Embedding</text>
+
+    <rect x="980" y="1042" width="14" height="14" fill="#1E40AF" rx="3" ry="3" />
+    <text x="1002" y="1054" class="legend-text">FastAPI</text>
+
+    <rect x="1065" y="1042" width="14" height="14" fill="#4338CA" rx="3" ry="3" />
+    <text x="1087" y="1054" class="legend-text">Git Repo</text>
+
+    <rect x="1150" y="1042" width="14" height="14" fill="#6366F1" rx="3" ry="3" />
+    <text x="1172" y="1054" class="legend-text">AST Parser</text>
+
+    <rect x="1235" y="1042" width="14" height="14" fill="#059669" rx="3" ry="3" />
+    <text x="1257" y="1054" class="legend-text">FastEmbed</text>
+
+    <rect x="1335" y="1042" width="14" height="14" fill="#0284C7" rx="3" ry="3" />
+    <text x="1357" y="1054" class="legend-text">ChromaDB</text>
+  </g>
+
+</svg>
